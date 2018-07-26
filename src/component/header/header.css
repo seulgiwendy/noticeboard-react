@@ -1,0 +1,10 @@
+.main-header {
+    height: 60px;
+    background-color: green;
+}
+
+.main-header h4 {
+    margin: 0;
+    text-align: left;
+    color: white;
+}
