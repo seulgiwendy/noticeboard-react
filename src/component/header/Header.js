@@ -4,7 +4,7 @@ import './header.css';
 const Header = (props) => {
     return(
         <div className="main-header">
-            <h4>공지사항 게시판</h4>
+            <img className="header-img" src="https://ssl.pstatic.net/imgshopping/adcenter/web/ico-shopping.png" width="117" height="22"/>
         </div>
     )
 }
