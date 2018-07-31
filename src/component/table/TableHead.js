@@ -9,6 +9,7 @@ const TableHead = (props) => {
             <th data-field="title">제목</th>
             <th data-field="user">등록자</th>
             <th data-field="rgstymdt">등록년월</th>
+            <th data-field="hitcount">조회수</th>
         </thead>
     )
 }
