@@ -10,6 +10,24 @@
     top: 17px;
 }
 
+.header-newarticle {
+    position: absolute;
+    right: 2%;
+    top: 12px;
+
+    width: 10%;
+}
+
+#new-article {
+    width: 800px;
+    height: 700px;
+}
+
+.new-article-editorbox {
+    width: 100%;
+    height: 600px;
+}
+
 .main-header h4 {
     margin: 0;
     text-align: left;
