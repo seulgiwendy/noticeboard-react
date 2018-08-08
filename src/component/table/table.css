@@ -1,3 +1,8 @@
-th {
-    text-align: center;
+a {
+    color: black;
+}
+
+a:hover {
+    color: silver;
+    text-decoration: underline;
 }

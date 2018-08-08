@@ -1,15 +1,16 @@
 import React from 'react';
+import './table.css';
 
 const NoticeLink = (props) => {
     return(
         <tr>
-            <td>275337</td>
-            <td>중요x</td>
-            <td>팝업아님</td>
-            <td>[안내]김준현 설렁탕 특으로 먹는다</td>
-            <td>이말년(KR8888577)</td>
-            <td>2018.01.01</td>
-            <td>1234</td>
+            <td>{props.seq}</td>
+            <td>{props.important}</td>
+            <td>{props.popup}</td>
+            <td><a className="notice-list-link" href="http://www.naver.com">{props.title}</a></td>
+            <td>{props.name}</td>
+            <td>{props.date}</td>
+            <td>{props.count}</td>
         </tr>
     )
 }
