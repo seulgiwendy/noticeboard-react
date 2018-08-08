@@ -18,8 +18,8 @@ const NoticeList = (props) => {
         <Table centered={false} hoverable={true} bordered={true}>
             <TableHead />
             <tbody>
-                {testArticles.map(article => {
-                    return <NoticeLink seq={article.seq} important={article.important} popup={article.popup} title={article.title} name={article.name} date={article.date} count={article.count} />
+                {props.articles.map(article => {
+                    return <NoticeLink seq={article.seq} important={article.is_important ? 'y' : 'n'} popup={article.is_popup ? 'y' : 'n'} title={article.title} name={article.registered_user} date={article.registered_date} count={article.read_count} />
                 })}
             </tbody>
         </Table> 

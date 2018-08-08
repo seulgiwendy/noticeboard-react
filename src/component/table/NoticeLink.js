@@ -7,7 +7,7 @@ const NoticeLink = (props) => {
             <td>{props.seq}</td>
             <td>{props.important}</td>
             <td>{props.popup}</td>
-            <td><a className="notice-list-link" href="http://www.naver.com">{props.title}</a></td>
+            <td><a className="notice-list-link" target="_blank" href={`http://localhost:8080/articlepage/${props.seq}`}>{props.title}</a></td>
             <td>{props.name}</td>
             <td>{props.date}</td>
             <td>{props.count}</td>

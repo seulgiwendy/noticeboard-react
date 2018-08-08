@@ -10,11 +10,17 @@ class Body extends Component {
 
         this.state = {
             currentPage: 1,
-            searchAfter: 0,
             sort: null,
-            search: null,
-            query: null,
-            articelist: null
+            articlecount: 0,
+            articlelist: [
+                {seq: 275337, important: "y", popup: "y", title:"[안내]김준현 설렁탕 특으로 먹는다", name:"이말년", date:"2018.01.01 12:34:56", count:1234},
+                {seq: 275337, important: "y", popup: "y", title:"[안내]김준현 설렁탕 특으로 먹는다", name:"이말년", date:"2018.01.01 12:34:56", count:1234},
+                {seq: 275337, important: "y", popup: "y", title:"[안내]김준현 설렁탕 특으로 먹는다", name:"이말년", date:"2018.01.01 12:34:56", count:1234},
+                {seq: 275337, important: "y", popup: "y", title:"[안내]김준현 설렁탕 특으로 먹는다", name:"이말년", date:"2018.01.01 12:34:56", count:1234},
+                {seq: 275337, important: "y", popup: "y", title:"[안내]김준현 설렁탕 특으로 먹는다", name:"이말년", date:"2018.01.01 12:34:56", count:1234},
+                {seq: 275337, important: "y", popup: "y", title:"[안내]김준현 설렁탕 특으로 먹는다", name:"이말년", date:"2018.01.01 12:34:56", count:1234},
+                {seq: 275337, important: "y", popup: "y", title:"[안내]김준현 설렁탕 특으로 먹는다", name:"이말년", date:"2018.01.01 12:34:56", count:1234}
+            ]
         }
 
         this.handleSearchClick = this.handleSearchClick.bind(this);
@@ -33,16 +39,27 @@ class Body extends Component {
             search_after: this.state.searchAfter
         };
 
+        let headerPreset = new Headers();
+        headerPreset.append('Content-Type', 'application/json;utf8');
+
         fetch("http://localhost:8080/api/v1/search", {
             method: 'POST',
-            headers: new Headers().append('Content-Type', 'application/json;utf8'),
+            headers: headerPreset,
             body: JSON.stringify(requestEntity)
         }).then(res => {
             console.log(res);
             return res.json();
         }).then(json => {
-            console.log(json);
-        })
+            this.setState({
+                query: inputQuery,
+                sort: sortId,
+                search: searchId,
+                currentPage: json.current_page,
+                searchAfter: json.search_after,
+                articlelist: json.articles,
+                articlecount: json.article_count
+            });
+        });
     }
 
     componentDidMount() {
@@ -50,10 +67,11 @@ class Body extends Component {
     }
 
     render() {
+        console.log(this.state);
         return(
             <div className="body-main">
                 <SearchBar onSearchEvent={this.handleSearchClick}/>
-                <NoticeList articles={this.state.articelist}/>
+                <NoticeList articles={this.state.articlelist}/>
                 <Paginator />
             </div>
         )
