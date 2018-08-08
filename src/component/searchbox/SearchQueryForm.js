@@ -8,7 +8,7 @@ const SearchQueryForm = (props) => {
     return(
         <Row>
             <SearchCriteriaBox />
-                <Autocomplete s={6} title="검색어를 입력하세요" data={
+                <Autocomplete id="search-keyword" s={6} title="검색어를 입력하세요" data={
                     {
                         '네이버': null,
                         '공지': null,
@@ -17,7 +17,7 @@ const SearchQueryForm = (props) => {
                     }
                 }/>
             <SortCriteriaBox />
-            <Button className="search-button" s={2}>검색</Button>
+            <Button className="search-button" s={2} onClick={props.onSearchEvent}>검색</Button>
         </Row>
     )
 }

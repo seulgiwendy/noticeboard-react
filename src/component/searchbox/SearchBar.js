@@ -6,7 +6,7 @@ import SearchQueryForm from './SearchQueryForm';
 const SearchBar = (props) => {
    return(
        <div className="body-searchbox">
-        <SearchQueryForm />
+        <SearchQueryForm onSearchEvent={props.onSearchEvent}/>
        </div>
    )
 }
